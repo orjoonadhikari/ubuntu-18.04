@@ -1,0 +1,16 @@
+---
+- name: make directory and copy a file in created directory
+  hosts: devops
+  become: true
+  tasks:
+    - name: make directory
+      file:
+        path: /tmp/ven/
+        state: directory
+
+    - name: copy a file to created directory
+      copy:
+        src: /home/vagrant/playbook.yaml
+        dest: /tmp/ven/
+        #      delegate_to: localhost
+

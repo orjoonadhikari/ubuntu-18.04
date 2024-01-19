@@ -1,0 +1,10 @@
+---
+- name: copy a file from host to remote
+  hosts: all
+  become: true
+  task:
+          -name: copy two.txt
+           copy:
+                   src: /home/vagrant/two.txt
+                   dest:/tmp/one/css
+

@@ -1,0 +1,7 @@
+---
+- name: print os and version
+  hosts: all
+  tasks:
+          - name: print os and version
+            debug:
+                    msg: ' {{ ansible_distribution }} {{ ansible_distribution_version }}'
