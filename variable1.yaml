@@ -1,0 +1,12 @@
+---
+- name: variable
+  hosts: all
+  become: true
+
+  vars:
+          my_name: "arjun adhikari"
+
+  tasks:
+          - name: variable print
+            debug:
+                    msg: "{{ my_name  }}"

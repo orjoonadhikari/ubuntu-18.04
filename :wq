@@ -5,7 +5,7 @@
   
   vars:
           username: arjun
-          home_directory: /home/arjun
+          home-directory: /home/arjun
           password: mypasswd
 
   tasks:
@@ -14,6 +14,6 @@
                     name: "{{ username }}"
                     state: present
                     createhome: yes
-                    home: "{{ home_directory }}"
+                    home: "{{ home-directory  }}"
                     password: " {{ password | password_hash('sha512', 'mysecretsalt') }}"
           

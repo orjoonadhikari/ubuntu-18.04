@@ -1,0 +1,11 @@
+---
+- name: dispaly a message
+  hosts: all
+  become: true
+  tasks:
+          - name: set a facts
+            set_fact:
+                    name: test machine
+          - name: display a variable name set
+            debug:
+                    msg: "{{ message }}"

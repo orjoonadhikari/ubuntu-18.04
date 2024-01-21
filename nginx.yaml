@@ -1,0 +1,22 @@
+---
+- name: install nginx server
+  hosts: all
+  become: true
+  tasks:
+          - name: update machine
+            apt:
+                   update_cache: yes
+
+          - name: install nginx server on machine
+            apt:
+                    name: nginx
+                    #status: present
+                    state: latest
+                    #            become: true
+
+          - name: start nginx
+            service:
+                    name: nginx
+                    state: started
+                    enabled: yes
+                    #  become: true        

@@ -1,18 +1,13 @@
 ---
-
 - name: install apache server
-  hosts: devops
-  become: yes
-
+  hosts: all
+  become: true
   tasks:
-    - name: apache
-      apt:
-              update_cache: yes
+          - name: update apt package
+            apt:
+                    update_cache: yes
 
-    - name: install apache
-      service:
-              name: apache2
-              state: started
-
-      when: ansible_os_family == 'Debian'
-
+          - name: install apache
+            apt:
+                    name: apache2
+                    state: present
