@@ -7,16 +7,13 @@
             apt:
                    update_cache: yes
 
-          - name: install nginx server on machine
+          - name: install redis server on machine
             apt:
-                    name: nginx
-                    #status: present
+                    name: redis
                     state: latest
-                    #            become: true
-
-          - name: start nginx
-            service:
-                    name: nginx
-                    state: started
-                    enabled: yes
-                    #  become: true        
+          - name: start mysql
+            apt:
+                  name: mysql-server
+                  state: latest
+                    
+                    
