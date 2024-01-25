@@ -1,0 +1,6 @@
+---
+- name: for nested loop
+  hosts: all
+  become: true
+  tasks:
+

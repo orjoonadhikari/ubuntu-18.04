@@ -1,0 +1,26 @@
+---
+- name: Find folders starting with the same name to manage them accordingly
+  hosts: all
+  become: true
+  tasks:
+    - name: Create a folder if it doesn't exist
+      file:
+        path: /tmp/folder1
+        state: directory
+
+    - name: Ensure the folder /tmp/folder
+      file:
+        path: '/tmp/folder1'
+        state: directory
+
+    - name: Copy folders with names starting with dir*
+      synchronize:
+        src: '{{ item.path }}'
+        dest: '/tmp/folder/{{ item.name }}'
+        mode: push
+      with_filetree:
+        - path: '/tmp'
+          recurse: yes
+          patterns:
+            - 'dir*'
+

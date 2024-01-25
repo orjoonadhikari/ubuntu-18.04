@@ -1,0 +1,10 @@
+---
+- name: creating list and dictionaries
+  hosts: all
+  vars:
+          fav_color: yellow
+  tasks:
+          - name: shows me fav_colors value
+            debug:
+                    msg: my favorite color is {{ fav_color }}.
+

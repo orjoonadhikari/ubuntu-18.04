@@ -1,0 +1,13 @@
+---
+- name: run uname on remote and local server
+  hosts: all
+  become: true
+  tasks:
+          - name: run uname command on remote server
+            shell: uname
+                    #debug:
+                    # msg: '{{ }}' 
+
+          - name: run uname command on a local server
+            local_action: shell uname
+

@@ -1,0 +1,9 @@
+---
+- name: to copy a file 
+  hosts: all 
+  become: true
+  tasks:
+          - name: copy a file to destination folder
+            copy:
+                    src: motd
+                    dest: /tmp/

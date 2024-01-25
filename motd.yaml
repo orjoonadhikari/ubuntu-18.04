@@ -1,0 +1,11 @@
+---
+- name: to display  motd in remote server
+  hosts: all
+  become: true
+  tasks:
+          - name: motd task
+            file:      
+              src: motd
+              dest: /etc/motd
+
+

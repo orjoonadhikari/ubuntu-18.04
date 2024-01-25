@@ -1,0 +1,6 @@
+---
+- name: list and  dictionaries
+  hosts: all
+  :wq
+
+

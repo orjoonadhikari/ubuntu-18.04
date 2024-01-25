@@ -1,0 +1,10 @@
+---
+- name: create devlopers group
+  groups:
+          name: developers
+- name: create security group
+  groups:
+          name: security
+- name: create finance group
+  groups:
+          name: finance

@@ -1,0 +1,21 @@
+---
+- name: find  the folder start with same name to mannge the folder accordingly.
+  hosts: all
+  become: true
+  tasks:
+          - name: crate a folder 
+            file:
+                    name: /tmp/folder
+                    state: directory
+          - name: ensure the folder /tmp/folder
+            file:
+                    dest: '/tmp/folder'
+                    state: directory
+          - name: copy folder having name dir*
+            synchronize:
+                    src: '{{ item }}'
+                    dest: '/tmp/folder/'
+                    state: directory
+                    mode: push
+            with_items:
+                    - '/tmp/dir*'

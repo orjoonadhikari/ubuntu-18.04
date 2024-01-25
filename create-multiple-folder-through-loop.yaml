@@ -1,0 +1,12 @@
+---
+- name: create multiple folder
+  hosts: all
+  become: true
+  #  vars:
+          #   item: start=a end=d
+  tasks:
+          - name: multiple directory 
+            file:
+                    dest: '/tmp/dir{{ item }}'
+                    state: directory
+            with_sequence: start=1 end=10

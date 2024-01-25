@@ -1,0 +1,16 @@
+---
+- name: install httpd on the basis of os family
+  hosts: all
+  become: true
+  tasks:
+          - name: install httpd if it is redhat
+            when: ansible_os_family == 'redhat'
+            yum:
+                    name: httpd
+                    state: latest
+          - name: install apcahe2 if os family is ubuntu
+            when: ansible_os_family == 'ubuntu'
+            apt:
+                    name: apache2
+                    state: latest
+
